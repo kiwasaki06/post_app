@@ -60,3 +60,13 @@ ja:
       not_saved:
         one: "エラーが発生したため %{resource} は保存されませんでした:"
         other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした:"
+
+ja:
+  activerecord:
+    attributes:
+      post:
+        Title: タイトル
+        Body: 内容
+  helpers:
+    submit:
+      create: 登録する
