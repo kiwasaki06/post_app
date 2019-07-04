@@ -65,8 +65,19 @@ ja:
   activerecord:
     attributes:
       post:
-        Title: タイトル
-        Body: 内容
+        id: ID
+        title: タイトル
+        body: 本文
   helpers:
     submit:
       create: 登録する
+
+
+ja:
+  views:
+    pagination:
+      first: 最初
+      last: 最後
+      previous: 前
+      next: 次
+      truncate: ...

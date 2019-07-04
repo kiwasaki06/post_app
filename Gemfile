@@ -11,10 +11,15 @@ gem 'jbuilder',     '2.6.4'
 gem 'devise'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+gem 'bootstrap', '~> 4.1.1'
+gem 'kaminari',  '~> 0.17.0'
 
 group :development, :test do
   gem 'sqlite3',      '1.3.13'
   gem 'byebug', '9.0.6', platform: :mri
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-doc'
 end
 
 group :development do
