@@ -62,18 +62,6 @@ ja:
         other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした:"
 
 ja:
-  activerecord:
-    attributes:
-      post:
-        id: ID
-        title: タイトル
-        body: 本文
-  helpers:
-    submit:
-      create: 登録する
-
-
-ja:
   views:
     pagination:
       first: 最初
@@ -81,3 +69,15 @@ ja:
       previous: 前
       next: 次
       truncate: ...
+
+ja:
+ activerecord:
+   attributes:
+     post:
+       id: ID
+       title: タイトル
+       body: 本文
+       picture: 画像
+ helpers:
+   submit:
+     create: 登録する

@@ -13,6 +13,8 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'bootstrap', '~> 4.1.1'
 gem 'kaminari',  '~> 0.17.0'
+gem 'carrierwave'
+gem 'mini_magick'
 
 group :development, :test do
   gem 'sqlite3',      '1.3.13'

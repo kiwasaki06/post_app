@@ -10,5 +10,11 @@
   <%= @post.body %>
 </p>
 
+<p>
+  <strong>写真:</strong>
+  <%= image_tag(@post.picture_url) if @post.picture.present? %>
+</p>
+
+
 <%= link_to '編集', edit_post_path(@post) %> |
 <%= link_to '戻る', posts_path %>
