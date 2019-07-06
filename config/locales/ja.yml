@@ -76,8 +76,12 @@ ja:
      post:
        id: ID
        title: タイトル
+       date: いつやるのか
        body: 本文
        picture: 画像
+       created_at: 投稿日時
+     comment:
+       comment: コメント
  helpers:
    submit:
      create: 登録する

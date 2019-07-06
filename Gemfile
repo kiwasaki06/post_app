@@ -15,6 +15,8 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'kaminari',  '~> 0.17.0'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'bootstrap3-datetimepicker-rails'
+gem 'momentjs-rails', '>= 2.9.0'
 
 group :development, :test do
   gem 'sqlite3',      '1.3.13'
