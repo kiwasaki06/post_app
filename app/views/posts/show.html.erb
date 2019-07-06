@@ -19,7 +19,7 @@
   <strong>コメント一覧:</strong>
   <% if @post.comments.any? %>
     <ul>
-      <%= @post.comments.each do |comment| %>
+      <% @post.comments.each do |comment| %>
       <li>
         <%= comment.body %>
         <%= link_to '削除', post_comment_path(@post, comment), method: :delete %>
@@ -34,6 +34,7 @@
     <strong>新規コメント:</strong>
     <%= form.text_area :body, id: :comment_body %>
   </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
