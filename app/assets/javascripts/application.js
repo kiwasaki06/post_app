@@ -16,3 +16,7 @@
 // = require bootstrap
 //= require moment
 //= require bootstrap-datetimepicker
+
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets
