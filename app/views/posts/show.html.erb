@@ -22,6 +22,7 @@
       <% @post.comments.each do |comment| %>
       <li>
         <%= comment.body %>
+        <%= current_user.id %>
         <%= link_to '削除', post_comment_path(@post, comment), method: :delete %>
       </li>
       <% end %>

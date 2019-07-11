@@ -11,11 +11,13 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
+    @user = @post.user
   end
 
   # GET /posts/new
   def new
     @post = Post.new
+    @current_user = current_user
   end
 
   # GET /posts/1/edit
@@ -26,7 +28,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-
+    @post.user_id = current_user
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: '投稿しました' }
@@ -63,13 +65,13 @@ class PostsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    # Use callbacks to share common setup or  constraints between actions.
     def set_post
       @post = Post.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :body, :picture, :date)
+      params.require(:post).permit(:title, :body, :picture, :date, :user_id)
     end
 end
