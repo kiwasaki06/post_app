@@ -13,6 +13,11 @@ class Users::SessionsController < Devise::SessionsController
     super
   end
 
+  def show
+    @user = User.find_by(id: params[:id])
+    @posts = Post.where(user_id: @user.id)
+  end
+
   # DELETE /resource/sign_out
   def destroy
     super
@@ -21,7 +26,7 @@ class Users::SessionsController < Devise::SessionsController
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_in_params
-  #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
-  # end
+  def configure_sign_in_params
+    devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
+  end
 end
