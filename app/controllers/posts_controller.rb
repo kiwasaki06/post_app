@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  protect_from_forgery except: :search
 
   # GET /posts
   # GET /posts.json
@@ -27,38 +28,35 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(post_params)
-    @post.user_id = current_user
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to @post, notice: '投稿しました' }
-        format.json { render :show, status: :created, location: @post }
-      else
-        format.html { render :new }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+     @post = Post.new(post_params)
+     @post.user_id = current_user.id
+       if @post.save
+         redirect_to posts_path, notice: '投稿しました'
+       else
+         ender :new , notice: '投稿に失敗しました。'
+       end
+   end
 
-  # PATCH/PUT /posts/1
-  # PATCH/PUT /posts/1.json
-  def update
-    respond_to do |format|
-      if @post.update(post_params)
-        format.html { redirect_to @post, notice: '更新しました' }
-        format.json { render :show, status: :ok, location: @post }
-      else
-        format.html { render :edit }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+   # PATCH/PUT /posts/1
+   # PATCH/PUT /posts/1.json
+   def update
+     respond_to do |format|
+       if @post.update(post_params)
+         format.html { redirect_to @post, notice: '更新しました' }
+         format.json { render :show, status: :ok, location: @post }
+       else
+         format.html { render :edit }
+         format.json { render json: @post.errors, status: :unprocessable_entity }
+       end
+     end
+   end
 
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
+    @post = Post.find(params[:id])
     @post.destroy
-    respond_to do |format|
+    respond_to do :posts
       format.html { redirect_to posts_url, notice: '削除しました' }
       format.json { head :no_content }
     end

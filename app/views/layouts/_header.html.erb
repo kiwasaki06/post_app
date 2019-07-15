@@ -1,16 +1,13 @@
-<header class="navbar navbar-fixed-top navbarinverse">
+<header class="navbar navbar-fixed-top navbar-dark" style="background-color:#abcdef;">
   <div class="container">
-    <%=link_to "App name", posts_path %>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
+    <%=link_to "App name", posts_path, id: "logo" %>
+    <nav class="nav">
+      <a class="nav-link">
         <% if user_signed_in? %>
-        <p>ログイン中:<%= link_to current_user.name,edit_user_registration_path %>さん</p>
+        <%= link_to current_user.name,edit_user_registration_path %>さんがログイン中</a>
         <% end %>
-        <li><%=link_to "ホーム画面へ", posts_path %></li>
-        <li><%=link_to "アプリの説明", static_pages_about_path %></li>
-        <li><%=link_to "ユーザー情報変更", edit_user_registration_path %></li>
-        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-      </ul>
+        <a class="nav-link"><%=link_to "ユーザー情報変更", edit_user_registration_path %></a>
+        <a class="nav-link"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a>
     </nav>
   </div>
 </header>
