@@ -19,6 +19,7 @@
         <th>詳細</th>
         <th>編集</th>
         <th>削除</th>
+        <th>いいねボタン</th>
     </tr>
   </thead>
 
@@ -34,8 +35,11 @@
         <td><%= link_to '詳細', post %></td>
         <td><%= link_to '編集', edit_post_path(post) %></td>
         <td><%= link_to '削除', post_path(post.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!-- <td><%= render partial: 'posts/posts', collection: @posts, as: :post %></td> -->
+        <td><div id="likeBtn"><%= link_to "◯", "/likes/like", remote: true %></div></td>
       </tr>
     <% end %>
+
   </tbody>
 </table>
 

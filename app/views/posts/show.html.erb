@@ -21,8 +21,10 @@
     <ul>
       <% @post.comments.each do |comment| %>
       <li>
-        <%= comment.body %>
-        <%= current_user.id %>
+        <h5><%= comment.body %></h5>
+          <small>
+            <%= current_user.name %>さんのコメント
+          </small>
         <%= link_to '削除', post_comment_path(@post, comment), method: :delete %>
       </li>
       <% end %>

@@ -6,12 +6,14 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all.order(created_at: 'desc').page(params[:page]).per(5)
+    @post = Post.new
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
+    @like = Like.new
     @user = @post.user
   end
 
@@ -56,7 +58,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    respond_to do :posts
+    respond_to do |format|
       format.html { redirect_to posts_url, notice: '削除しました' }
       format.json { head :no_content }
     end
