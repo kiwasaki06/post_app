@@ -37,6 +37,7 @@
         <td><%= link_to '削除', post_path(post.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <!-- <td><%= render partial: 'posts/posts', collection: @posts, as: :post %></td> -->
         <td><div id="likeBtn"><%= link_to "◯", "/likes/like", remote: true %></div></td>
+        
       </tr>
     <% end %>
 
